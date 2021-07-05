@@ -8,7 +8,7 @@ class Phrase {
     }
 
     /**
-     * Adds letter placeholders for game start
+     * Displays phrase letter placeholders for game start
      */
     addPhraseToDisplay() {
         const phraseContainer = document.querySelector('#phrase ul');
@@ -32,7 +32,7 @@ class Phrase {
      * Checks to see if player's selected letter is in phrase
      */
     checkLetter(guess) {
-        const guessIsCorrect = false;
+        let guessIsCorrect = false;
         const phraseArray = this.phrase.split('');
         phraseArray.forEach(character => {
             if (guess == character) {
@@ -44,9 +44,10 @@ class Phrase {
 
     /**
      * Reveals the letter(s) on board that match player's selection
+     * @param   {string}    letter - the letter that matches player's selection
      */
     showMatchedLetter(letter) {
-        const matchingLetters = document.getElementsByClassName(letter);
+        const matchingLetters = Array.from(document.getElementsByClassName(letter));
         matchingLetters.forEach(letter => {
             letter.classList.add('show');
             letter.classList.remove('hide');

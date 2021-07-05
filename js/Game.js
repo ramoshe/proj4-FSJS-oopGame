@@ -17,9 +17,22 @@ class Game {
      * Initializes game
      */
     startGame() {
+        //erase old game
+        document.querySelector('#phrase ul').innerHTML = '';
+        const keyboardButtons = Array.from(document.querySelectorAll('.key'));
+        keyboardButtons.forEach(key => {
+            key.classList.remove('chosen', 'wrong');
+            key.disabled = false;
+        });
+        const lifeHearts = Array.from(document.querySelectorAll('.tries img'));
+        lifeHearts.forEach(heart => heart.setAttribute('src', 'images/liveHeart.png'));
+        this.missed = 0;
+
+        // start new game
         document.querySelector('#overlay').style.display = 'none';
-        this.activePhrase = this.phrases.getRandomPhrase();
+        this.activePhrase = new Phrase(this.getRandomPhrase());
         this.activePhrase.addPhraseToDisplay();
+        console.log('HEY CHEATER! The phrase is: ' + this.activePhrase.phrase);
     }
 
     /**
@@ -31,6 +44,7 @@ class Game {
 
     /**
      * Controls most of the game logic
+     * @param   {Object}    the event object that triggers this function
      */
     handleInteraction(event) {
         const clickedLetter = event.target.textContent;
@@ -63,7 +77,7 @@ class Game {
      * Checks if player has revealed all letters
      */
     checkforWin() {
-        const allRevealed = false;
+        let allRevealed = false;
         const hiddenLetter = document.querySelector('.hide');
         if (hiddenLetter === null) {
             allRevealed = true;
