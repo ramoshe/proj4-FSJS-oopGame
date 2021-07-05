@@ -35,14 +35,14 @@ class Game {
      * Controls most of the game logic
      * @param   {Object}    the event object that triggers this function
      */
-    handleInteraction(event) {
-        const clickedLetter = event.target.textContent;
-        event.target.disabled = true;
+    handleInteraction(button) {
+        const clickedLetter = button.textContent;
+        button.disabled = true;
         if (!this.activePhrase.checkLetter(clickedLetter)) {
-            event.target.classList.add('wrong');
+            button.classList.add('wrong');
             this.removeLife();
         } else {
-            event.target.classList.add('chosen');
+            button.classList.add('chosen');
             this.activePhrase.showMatchedLetter(clickedLetter);
             if (this.checkforWin()) {
                 this.gameOver();

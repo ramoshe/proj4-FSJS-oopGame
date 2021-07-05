@@ -30,6 +30,7 @@ class Phrase {
 
     /**
      * Checks to see if player's selected letter is in phrase
+     * @returns {boolean}   whether or not the letter is in the phrase
      */
     checkLetter(guess) {
         let guessIsCorrect = false;

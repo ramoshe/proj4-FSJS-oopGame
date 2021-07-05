@@ -12,6 +12,17 @@ startButton.addEventListener('click', () => {
 const keyBoard = document.querySelector('#qwerty');
 keyBoard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
-        game.handleInteraction(e);
+        game.handleInteraction(e.target);
+    }
+});
+
+/**
+ * Extra Credit - add keyboard functionality
+ */
+document.addEventListener('keydown', (e) => {
+    if (/^[a-z]$/.test(e.key)) {
+        const allButtons = Array.from(document.querySelectorAll('.key'));
+        const letterButton = allButtons.find(button => button.textContent === e.key);
+        game.handleInteraction(letterButton);
     }
 });
