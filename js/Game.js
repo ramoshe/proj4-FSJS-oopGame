@@ -5,11 +5,11 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = ['live in the moment', 
-                        'follow your heart',
-                        'positive vibes only',
-                        'you are enough',
-                        'life is a journey'];
+        this.phrases = [new Phrase('live in the moment'), 
+                        new Phrase('follow your heart'),
+                        new Phrase('positive vibes only'),
+                        new Phrase('you are enough'),
+                        new Phrase('life is a journey')];
         this.activePhrase = null;
     }
 
@@ -17,26 +17,15 @@ class Game {
      * Initializes game
      */
     startGame() {
-        //erase old game
-        document.querySelector('#phrase ul').innerHTML = '';
-        const keyboardButtons = Array.from(document.querySelectorAll('.key'));
-        keyboardButtons.forEach(key => {
-            key.classList.remove('chosen', 'wrong');
-            key.disabled = false;
-        });
-        const lifeHearts = Array.from(document.querySelectorAll('.tries img'));
-        lifeHearts.forEach(heart => heart.setAttribute('src', 'images/liveHeart.png'));
-        this.missed = 0;
-
-        // start new game
         document.querySelector('#overlay').style.display = 'none';
-        this.activePhrase = new Phrase(this.getRandomPhrase());
+        this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
         console.log('HEY CHEATER! The phrase is: ' + this.activePhrase.phrase);
     }
 
     /**
      * Randomly retrieves one of the phrases
+     * @returns {Object}    random object from this.phrases array
      */
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
@@ -74,19 +63,20 @@ class Game {
     }
 
     /**
-     * Checks if player has revealed all letters
+     * Checks if player has won the game by revealing all letters 
+     * @returns {boolean}   whether all letters are revealed
      */
     checkforWin() {
-        let allRevealed = false;
+        let allLettersRevealed = false;
         const hiddenLetter = document.querySelector('.hide');
         if (hiddenLetter === null) {
-            allRevealed = true;
+            allLettersRevealed = true;
         }
-        return allRevealed;
+        return allLettersRevealed;
     }
 
     /**
-     * Displays overlay with win or loss message
+     * Displays overlay with win or loss message and resets game
      */
     gameOver() {
         const overlay = document.querySelector('#overlay');
@@ -94,11 +84,24 @@ class Game {
         overlay.classList.remove('start');
         const message = document.querySelector('#game-over-message');
         if (this.checkforWin()) {
-            message.textContent = 'Congrats! You won the game!';
+            message.textContent = 'Congrats, you won!';
+            overlay.classList.remove('lose');
             overlay.classList.add('win');
         } else {
-            message.textContent = 'Sorry, you lost the game.';
+            message.textContent = 'Sorry, you lost.';
+            overlay.classList.remove('win');
             overlay.classList.add('lose');
         }
+
+        //erase game
+        document.querySelector('#phrase ul').innerHTML = '';
+        const keyboardButtons = Array.from(document.querySelectorAll('.key'));
+        keyboardButtons.forEach(key => {
+            key.classList.remove('chosen', 'wrong');
+            key.disabled = false;
+        });
+        const lifeHearts = Array.from(document.querySelectorAll('.tries img'));
+        lifeHearts.forEach(heart => heart.setAttribute('src', 'images/liveHeart.png'));
+        this.missed = 0;
     }
 }
