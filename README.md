@@ -7,8 +7,8 @@ Extra Credit Customizations:
  - Added keyboard functionality (keyboard buttons control on screen buttons) in app.js
  - Phrase is logged to the console for the cheaters
  - Style changes in app.js:
+     - Changed font of title and header
      - Changed title from "Phrase Hunter" to "Guess The Phrase"
-     - Changed font of title and header (font loaded in head of index.html)
      - Added drop shadow to title and header
      - Added instrictions to initial page
      - Added drop shadows to Start Game and all keyboard buttons
