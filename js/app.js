@@ -31,6 +31,11 @@ document.addEventListener('keydown', (e) => {
  * Extra Credit - style changes (in order of appearance)
  */
 window.addEventListener('DOMContentLoaded', () => {
+    const changoFont = document.createElement('link');
+    changoFont.setAttribute('href', 'https://fonts.googleapis.com/css?family=Chango');
+    changoFont.setAttribute('rel', 'stylesheet');
+    document.head.appendChild(changoFont);
+
     const title = document.querySelector('.title');
     title.textContent = 'Guess The Phrase';
     title.style.fontFamily = 'Chango';
