@@ -5,6 +5,7 @@ Extra Credit Customizations:
  - Changed addPhraseToDisplay() method so that each phrase word stays together on one line (text wrapping)
  - Edited gameOver() method to add a reveal of the phrase when player loses and number of wrong letters when player wins
  - Added keyboard functionality (keyboard buttons control on screen buttons) in app.js
+ - Phrase is logged to the console for the cheaters
  - Style changes in app.js:
      - Changed title from "Phrase Hunter" to "Guess The Phrase"
      - Changed font of title and header (font loaded in head of index.html)
