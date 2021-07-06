@@ -87,13 +87,31 @@ class Game {
             message.textContent = 'Congrats, you won!';
             overlay.classList.remove('lose');
             overlay.classList.add('win');
+
+            // add extra message
+            const livesLost = document.createElement('h1');
+            if (this.missed > 0) {
+                livesLost.textContent = `You only guessed ${this.missed} wrong letters!`;
+            } else {
+                livesLost.textContent = `You didn't even guess any wrong letters!`;
+            }
+            livesLost.className = 'extra-message';
+            livesLost.style.paddingBottom = '1em';
+            message.insertAdjacentElement('afterend', livesLost)
         } else {
             message.textContent = 'Sorry, you lost.';
             overlay.classList.remove('win');
             overlay.classList.add('lose');
-        }
 
-        //erase game
+            // add extra message
+            const phraseReveal = document.createElement('h1');
+            phraseReveal.textContent = `The phrase was "${this.activePhrase.phrase}".`;
+            phraseReveal.className = 'extra-message';
+            phraseReveal.style.paddingBottom = '1em';
+            message.insertAdjacentElement('afterend', phraseReveal);
+        }
+        
+        // erase game
         document.querySelector('#phrase ul').innerHTML = '';
         const keyboardButtons = Array.from(document.querySelectorAll('.key'));
         keyboardButtons.forEach(key => {
@@ -103,5 +121,8 @@ class Game {
         const lifeHearts = Array.from(document.querySelectorAll('.tries img'));
         lifeHearts.forEach(heart => heart.setAttribute('src', 'images/liveHeart.png'));
         this.missed = 0;
+
+        // clear extra message on Start Game button click
+        document.querySelector('#btn__reset').addEventListener('click', () => document.querySelector('.extra-message').remove())
     }
 }

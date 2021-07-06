@@ -3,3 +3,4 @@
 
 Extra Credit Customizations:
  - Changed addPhraseToDisplay() method so that each phrase word stays together on one line (text wrapping)
+ - Edited gameOver() method to add a reveal of the phrase when player loses and number of wrong letters when player wins
