@@ -9,6 +9,7 @@ class Phrase {
 
     /**
      * Displays phrase letter placeholders for game start
+     * note: for text wrapping each word is added as an LI with a nested UL containing LI for each letter
      */
     addPhraseToDisplay() {
         const phraseContainer = document.querySelector('#phrase ul');
@@ -26,6 +27,7 @@ class Phrase {
             wordLI.appendChild(wordUL);
             phraseContainer.appendChild(wordLI);
             
+            // add a space LI if it's not the last word
             if (index !== phraseWords.length-1) {
                 const space = document.createElement('li');
                 space.className = 'space';
