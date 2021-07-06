@@ -12,18 +12,25 @@ class Phrase {
      */
     addPhraseToDisplay() {
         const phraseContainer = document.querySelector('#phrase ul');
-        const phraseArray = this.phrase.split('');
-        phraseArray.forEach(character => {
-            if (character === ' ') {
+        const phraseWords = this.phrase.split(' ');
+        phraseWords.forEach((word, index) => {
+            const wordLI = document.createElement('li');
+            const wordUL = document.createElement('ul');
+            const letters = word.split('');
+            letters.forEach(letter => {
+                const phraseLetter = document.createElement('li')
+                phraseLetter.classList.add('hide', 'letter', letter);
+                phraseLetter.textContent = letter;
+                wordUL.appendChild(phraseLetter);
+            });
+            wordLI.appendChild(wordUL);
+            phraseContainer.appendChild(wordLI);
+            
+            if (index !== phraseWords.length-1) {
                 const space = document.createElement('li');
                 space.className = 'space';
-                space.textContent = character;
+                space.textContent = ' ';
                 phraseContainer.appendChild(space);
-            } else {
-                const letter = document.createElement('li');
-                letter.classList.add('hide', 'letter', character);
-                letter.textContent = character;
-                phraseContainer.appendChild(letter);
             }
         });
     }
