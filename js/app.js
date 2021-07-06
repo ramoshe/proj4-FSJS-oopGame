@@ -65,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const scoreTitle = document.createElement('h1');
     scoreTitle.textContent = 'Lives Remaining:';
+    scoreTitle.style.fontFamily = "Chango";
     document.querySelector('#scoreboard').insertAdjacentElement('afterbegin', scoreTitle);
 
     const heartIcons = Array.from(document.querySelectorAll('.tries img'));
