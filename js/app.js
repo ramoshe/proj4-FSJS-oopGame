@@ -38,8 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const howTo = document.createElement('h1');
     howTo.textContent = 'How to Play:';
-    howTo.style.paddingTop = '2em';
-    title.insertAdjacentElement('afterend', howTo);
+    startButton.insertAdjacentElement('beforebegin', howTo);
 
     const instructions = document.createElement('p');
     instructions.innerHTML = `On the next screen you'll see boxes that represent the letters in a secret phrase.</p><p>
@@ -47,7 +46,8 @@ window.addEventListener('DOMContentLoaded', () => {
                               Correct guesses will appear in the phrase display.</p><p>
                               Incorrect guesses will take away one of your lives.</p><p>
                               Good luck!`;
-    howTo.insertAdjacentElement('afterend', instructions);
+    instructions.style.paddingBottom = '3em';
+    startButton.insertAdjacentElement('beforebegin', instructions);
 
     startButton.style.boxShadow = '2px 2px 3px black';
     
