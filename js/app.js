@@ -26,3 +26,50 @@ document.addEventListener('keydown', (e) => {
         game.handleInteraction(letterButton);
     }
 });
+
+/**
+ * Extra Credit - style changes (in order of appearance)
+ */
+window.addEventListener('DOMContentLoaded', () => {
+    const title = document.querySelector('.title');
+    title.textContent = 'Guess The Phrase';
+    title.style.fontFamily = 'Chango';
+    title.style.textShadow = '2px 2px 3px black';
+
+    const howTo = document.createElement('h1');
+    howTo.textContent = 'How to Play:';
+    howTo.style.paddingTop = '2em';
+    title.insertAdjacentElement('afterend', howTo);
+
+    const instructions = document.createElement('p');
+    instructions.innerHTML = `On the next screen you'll see boxes that represent the letters in a secret phrase.</p><p>
+                              Use your keyboard or the buttons on screen to guess letters in the phrase.</p><p>
+                              Correct guesses will appear in the phrase display.</p><p>
+                              Incorrect guesses will take away one of your lives.</p><p>
+                              Good luck!`;
+    howTo.insertAdjacentElement('afterend', instructions);
+
+    startButton.style.boxShadow = '2px 2px 3px black';
+    
+    const header = document.querySelector('.header');
+    header.textContent = 'Guess The Phrase';
+    header.style.fontFamily = 'Chango';
+    header.style.textShadow = '2px 2px 3px gray';
+
+    const phraseLetters = Array.from(document.querySelectorAll('.letter'));
+    console.log(phraseLetters);
+    phraseLetters.forEach(letter => letter.style.boxShadow = '2px 2px 3px gray');
+
+    const keyButtons = Array.from(document.querySelectorAll('.key'));
+    keyButtons.forEach(button => button.style.boxShadow = '2px 2px 3px gray');
+
+    const scoreTitle = document.createElement('h1');
+    scoreTitle.textContent = 'Lives Remaining:';
+    document.querySelector('#scoreboard').insertAdjacentElement('afterbegin', scoreTitle);
+
+    const heartIcons = Array.from(document.querySelectorAll('.tries img'));
+    heartIcons.forEach(icon => {
+        icon.height = '70';
+        icon.width = '60';
+    });
+});
