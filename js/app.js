@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const howTo = document.createElement('h1');
     howTo.textContent = 'How to Play:';
+    howTo.style.fontSize = '1.5em';
     startButton.insertAdjacentElement('beforebegin', howTo);
 
     const instructions = document.createElement('p');
