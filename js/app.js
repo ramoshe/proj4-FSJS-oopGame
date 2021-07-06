@@ -58,7 +58,6 @@ window.addEventListener('DOMContentLoaded', () => {
     header.style.textShadow = '2px 2px 3px gray';
 
     const phraseLetters = Array.from(document.querySelectorAll('.letter'));
-    console.log(phraseLetters);
     phraseLetters.forEach(letter => letter.style.boxShadow = '2px 2px 3px gray');
 
     const keyButtons = Array.from(document.querySelectorAll('.key'));
