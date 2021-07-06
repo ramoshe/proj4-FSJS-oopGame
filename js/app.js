@@ -73,4 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
         icon.height = '70';
         icon.width = '60';
     });
+
+    const messages = document.querySelectorAll('#overlay h1');
+    messages.forEach(h1 => h1.style.fontFamily = 'Chango');
 });
