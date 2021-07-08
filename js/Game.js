@@ -37,17 +37,19 @@ class Game {
      */
     handleInteraction(button) {
         const clickedLetter = button.textContent;
-        button.disabled = true;
-        if (!this.activePhrase.checkLetter(clickedLetter)) {
-            button.classList.add('wrong');
-            this.removeLife();
-        } else {
-            button.classList.add('chosen');
-            this.activePhrase.showMatchedLetter(clickedLetter);
-            if (this.checkforWin()) {
-                this.gameOver();
+        if (!button.disabled) {
+            if (!this.activePhrase.checkLetter(clickedLetter)) {
+                button.classList.add('wrong');
+                this.removeLife();
+            } else {
+                button.classList.add('chosen');
+                this.activePhrase.showMatchedLetter(clickedLetter);
+                if (this.checkforWin()) {
+                    this.gameOver();
+                }
             }
         }
+        button.disabled = true;
     }
 
     /**
