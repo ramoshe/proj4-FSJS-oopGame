@@ -42,14 +42,7 @@ class Phrase {
      * @returns {boolean}   whether or not the letter is in the phrase
      */
     checkLetter(guess) {
-        let guessIsCorrect = false;
-        const phraseArray = this.phrase.split('');
-        phraseArray.forEach(character => {
-            if (guess == character) {
-                guessIsCorrect = true;
-            }
-        });
-        return guessIsCorrect;
+        return this.phrase.includes(guess);
     }
 
     /**

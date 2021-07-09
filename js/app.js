@@ -3,10 +3,13 @@
  * app.js */
 
 const game = new Game();
+const gameContainer = document.querySelector('.main-container')
 
 const startButton = document.querySelector('#btn__reset');
 startButton.addEventListener('click', () => {
     game.startGame();
+    gameContainer.classList.add('gameActive');
+    console.log(gameContainer.className);
 });
 
 const keyBoard = document.querySelector('#qwerty');
@@ -20,7 +23,7 @@ keyBoard.addEventListener('click', (e) => {
  * Extra Credit - add keyboard functionality
  */
 document.addEventListener('keydown', (e) => {
-    if (/^[a-z]$/.test(e.key)) {
+    if (/^[a-z]$/.test(e.key) && gameContainer.classList.contains('gameActive')) {
         const allButtons = Array.from(document.querySelectorAll('.key'));
         const letterButton = allButtons.find(button => button.textContent === e.key);
         game.handleInteraction(letterButton);

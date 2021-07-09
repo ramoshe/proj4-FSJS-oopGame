@@ -126,5 +126,8 @@ class Game {
 
         // clear extra message on Start Game button click
         document.querySelector('#btn__reset').addEventListener('click', () => document.querySelector('.extra-message').remove())
+
+        // reset game container
+        document.querySelector('.main-container').classList.remove('gameActive');
     }
 }
