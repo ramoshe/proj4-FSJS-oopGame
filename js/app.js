@@ -3,13 +3,12 @@
  * app.js */
 
 const game = new Game();
-const gameContainer = document.querySelector('.main-container')
+const gameContainer = document.querySelector('.main-container');
 
 const startButton = document.querySelector('#btn__reset');
 startButton.addEventListener('click', () => {
     game.startGame();
     gameContainer.classList.add('gameActive');
-    console.log(gameContainer.className);
 });
 
 const keyBoard = document.querySelector('#qwerty');
