@@ -1,5 +1,5 @@
-# proj4-FSJS-oopGame
- Project 4 for the Full Stack JavaScript Techdegree program at Treehouse
+# Project 4 - Object Oriented Programming Game
+ The fourth project for the Full Stack JavaScript Techdegree program at Treehouse
 
 Extra Credit Customizations:
  - Changed addPhraseToDisplay() method so that each phrase word stays together on one line (text wrapping)
@@ -16,3 +16,6 @@ Extra Credit Customizations:
      - Made heart icons in scoreboard bigger
 
 PLEASE NOTE: I got the ideas for the first two customizations (text wrapping and extra Game Over message) from other Treehouse FSJS Techdegree student projects, but I did not even look at their code, I found my own way to implement similar features.
+
+Project Description:
+In this project, you'll create a browser-based, word guessing game: "Phrase Hunter." You’ll use JavaScript and OOP (Object-Oriented Programming) to select a random, hidden phrase, which a player tries to guess, by clicking letters on an onscreen keyboard.
