@@ -30,7 +30,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 /**
- * Extra Credit - style changes (in order of appearance)
+ * Extra Credit - customizations (in order of appearance)
  */
 window.addEventListener('DOMContentLoaded', () => {
     const changoFont = document.createElement('link');
