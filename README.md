@@ -1,4 +1,4 @@
-# Project 4 - Object Oriented Programming Game
+# FSJS Project 4: Object Oriented Programming Game
  My fourth project for the Full Stack JavaScript Techdegree program at Treehouse. A phrase guessing game built using object-oriented programmimg principles.
  
 ## How To Use
